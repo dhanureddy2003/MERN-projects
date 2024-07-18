@@ -1,0 +1,273 @@
+[
+    {
+      "id": 1,
+      "name": "To Kill a Mockingbird",
+      "title": "To Kill a Mockingbird",
+      "price": 9.99,
+      "category": "Fiction",
+      "desc": "A novel by Harper Lee published in 1960, instantly successful, widely read in high schools and middle schools in the United States.",
+      "imglink": "https://cdn.kobo.com/book-images/87c87c02-1a4f-4e3a-8e90-14135d3c7029/1200/1200/False/to-kill-a-mockingbird-graphic-novel-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "1984",
+      "title": "1984",
+      "price": 8.99,
+      "category": "Dystopian",
+      "desc": "A novel by George Orwell published in 1949 as a warning about the dangers of totalitarianism.",
+      "imglink": "https://images.unsplash.com/photo-1532012197267-da84d127e765"
+    },
+    {
+      "id": 3,
+      "name": "The Great Gatsby",
+      "title": "The Great Gatsby",
+      "price": 10.49,
+      "category": "Classic",
+      "desc": "A 1925 novel by American writer F. Scott Fitzgerald. It is set in the Jazz Age on Long Island, near New York City.",
+      "imglink": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c"
+    },
+    {
+      "id": 4,
+      "name": "Brave New World",
+      "title": "Brave New World",
+      "price": 7.99,
+      "category": "Dystopian",
+      "desc": "A dystopian social science fiction novel and cautionary tale, written by the English writer Aldous Huxley, and published in 1932.",
+      "imglink": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+    },
+    {
+      "id": 5,
+      "name": "The Catcher in the Rye",
+      "title": "The Catcher in the Rye",
+      "price": 8.49,
+      "category": "Classic",
+      "desc": "A novel by J. D. Salinger, partially published in serial form in 1945–1946 and as a novel in 1951.",
+      "imglink": "https://images.unsplash.com/photo-1507842217343-583bb7270b66"
+    },
+    {
+      "id": 6,
+      "name": "Moby Dick",
+      "title": "Moby Dick",
+      "price": 9.99,
+      "category": "Classic",
+      "desc": "An 1851 novel by Herman Melville. The story tells the adventures of wandering sailor Ishmael and his voyage on the whaleship Pequod, commanded by Captain Ahab.",
+      "imglink": "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      "id": 7,
+      "name": "War and Peace",
+      "title": "War and Peace",
+      "price": 12.99,
+      "category": "Historical",
+      "desc": "A novel by the Russian author Leo Tolstoy, first published from 1865 to 1869.",
+      "imglink": "https://images.unsplash.com/photo-1531256379411-1e9f1c412dd1"
+    },
+    {
+      "id": 8,
+      "name": "Crime and Punishment",
+      "title": "Crime and Punishment",
+      "price": 10.49,
+      "category": "Philosophical",
+      "desc": "A novel by the Russian author Fyodor Dostoevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866.",
+      "imglink": "https://images.unsplash.com/photo-1532012197267-da84d127e765"
+    },
+    {
+      "id": 9,
+      "name": "Pride and Prejudice",
+      "title": "Pride and Prejudice",
+      "price": 7.99,
+      "category": "Romance",
+      "desc": "A romantic novel of manners written by Jane Austen in 1813.",
+      "imglink": "https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+    },
+    {
+      "id": 10,
+      "name": "The Hobbit",
+      "title": "The Hobbit",
+      "price": 8.99,
+      "category": "Fantasy",
+      "desc": "A children's fantasy novel by English author J. R. R. Tolkien. It was published on 21 September 1937.",
+      "imglink": "https://images.unsplash.com/photo-1563201517-eb25a0b7444a"
+    },
+    {
+      "id": 11,
+      "name": "The Odyssey",
+      "title": "The Odyssey",
+      "price": 11.49,
+      "category": "Epic",
+      "desc": "An epic poem attributed to the ancient Greek poet Homer. It is, in part, a sequel to the Iliad, the other work ascribed to Homer.",
+      "imglink": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c"
+    },
+    {
+      "id": 12,
+      "name": "The Iliad",
+      "title": "The Iliad",
+      "price": 10.99,
+      "category": "Epic",
+      "desc": "An ancient Greek epic poem attributed to Homer. It is set during the Trojan War, the ten-year siege of the city of Troy by a coalition of Greek states.",
+      "imglink": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+    },
+    {
+      "id": 13,
+      "name": "The Book Thief",
+      "title": "The Book Thief",
+      "price": 9.99,
+      "category": "Historical",
+      "desc": "A historical novel by Australian author Markus Zusak, and is his most popular work.",
+      "imglink": "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      "id": 14,
+      "name": "The Chronicles of Narnia",
+      "title": "The Chronicles of Narnia",
+      "price": 12.99,
+      "category": "Fantasy",
+      "desc": "A series of seven fantasy novels by British author C. S. Lewis.",
+      "imglink": "https://images.unsplash.com/photo-1531256379411-1e9f1c412dd1"
+    },
+    {
+      "id": 15,
+      "name": "Harry Potter",
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "price": 11.49,
+      "category": "Fantasy",
+      "desc": "A fantasy novel written by British author J. K. Rowling.",
+      "imglink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4s2s9yqBqwCQ2phnZ515b-zcel1GonE6EKHdyGFJpXSJkURkqXHe2rgkY4JYyiOShN2o&usqp=CAU"
+    },
+    {
+      "id": 16,
+      "name": "Jane Eyre",
+      "title": "Jane Eyre",
+      "price": 10.99,
+      "category": "Romance",
+      "desc": "A novel by English writer Charlotte Brontë. It was published on 16 October 1847.",
+      "imglink": "https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+    },
+    {
+      "id": 17,
+      "name": "Animal Farm",
+      "title": "Animal Farm",
+      "price": 7.99,
+      "category": "Satire",
+      "desc": "An allegorical novella by George Orwell, first published in England on 17 August 1945.",
+      "imglink": "https://images.unsplash.com/photo-1563201517-eb25a0b7444a"
+    },
+    {
+      "id": 18,
+      "name": "The Little Prince",
+      "title": "The Little Prince",
+      "price": 8.99,
+      "category": "Classic",
+      "desc": "A novella by French aristocrat, writer, and aviator Antoine de Saint-Exupéry. It was first published in English and French in the United States in 1943.",
+      "imglink": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c"
+    },
+    {
+      "id": 19,
+      "name": "The Lord of the Rings",
+      "title": "The Lord of the Rings",
+      "price": 15.99,
+      "category": "Fantasy",
+      "desc": "An epic high-fantasy novel written by English author and scholar J. R. R. Tolkien.",
+      "imglink": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+    },
+    {
+      "id": 20,
+      "name": "Great Expectations",
+      "title": "Great Expectations",
+      "price": 9.49,
+      "category": "Classic",
+      "desc": "A novel by Charles Dickens, first published in serial form in All the Year Round from 1 December 1860 to August 1861.",
+      "imglink": "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      "id": 21,
+      "name": "The Alchemist",
+      "title": "The Alchemist",
+      "price": 8.49,
+      "category": "Adventure",
+      "desc": "A novel by Brazilian author Paulo Coelho that was first published in 1988.",
+      "imglink": "https://images.unsplash.com/photo-1531256379411-1e9f1c412dd1"
+    },
+    {
+      "id": 22,
+      "name": "Wuthering Heights",
+      "title": "Wuthering Heights",
+      "price": 10.49,
+      "category": "Romance",
+      "desc": "A novel by Emily Brontë published in 1847 under her pseudonym 'Ellis Bell'. It is her only finished novel.",
+      "imglink": "https://images.unsplash.com/photo-1532012197267-da84d127e765"
+    },
+    {
+      "id": 23,
+      "name": "The Picture of Dorian Gray",
+      "title": "The Picture of Dorian Gray",
+      "price": 9.99,
+      "category": "Philosophical",
+      "desc": "A philosophical novel by Oscar Wilde, first published complete in the July 1890 issue of Lippincott's Monthly Magazine.",
+      "imglink": "https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+    },
+    {
+      "id": 24,
+      "name": "Les Misérables",
+      "title": "Les Misérables",
+      "price": 11.99,
+      "category": "Historical",
+      "desc": "A French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century.",
+      "imglink": "https://images.unsplash.com/photo-1563201517-eb25a0b7444a"
+    },
+    {
+      "id": 25,
+      "name": "A Tale of Two Cities",
+      "title": "A Tale of Two Cities",
+      "price": 8.99,
+      "category": "Historical",
+      "desc": "A historical novel by Charles Dickens, set in London and Paris before and during the French Revolution.",
+      "imglink": "https://m.media-amazon.com/images/I/91C0MECqJ+L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Frankenstein",
+      "title": "Frankenstein",
+      "price": 7.49,
+      "category": "Horror",
+      "desc": "A novel written by English author Mary Shelley, telling the story of Victor Frankenstein, a young scientist who creates a sapient creature in an unorthodox scientific experiment.",
+      "imglink": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
+    },
+    {
+      "id": 27,
+      "name": "Dracula",
+      "title": "Dracula",
+      "price": 8.49,
+      "category": "Horror",
+      "desc": "An 1897 Gothic horror novel by Irish author Bram Stoker. It introduced the character of Count Dracula and established many conventions of subsequent vampire fantasy.",
+      "imglink": "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      "id": 28,
+      "name": "Fahrenheit 451",
+      "title": "Fahrenheit 451",
+      "price": 9.99,
+      "category": "Dystopian",
+      "desc": "A 1953 dystopian novel by American writer Ray Bradbury. It is regarded as one of his best works.",
+      "imglink": "https://images.unsplash.com/photo-1531256379411-1e9f1c412dd1"
+    },
+    {
+      "id": 29,
+      "name": "One Hundred Years of Solitude",
+      "title": "One Hundred Years of Solitude",
+      "price": 12.49,
+      "category": "Magical Realism",
+      "desc": "A landmark 1967 novel by Colombian author Gabriel García Márquez that tells the multi-generational story of the Buendía family.",
+      "imglink": "https://images.unsplash.com/photo-1532012197267-da84d127e765"
+    },
+    {
+      "id": 30,
+      "name": "The Grapes of Wrath",
+      "title": "The Grapes of Wrath",
+      "price": 10.49,
+      "category": "Historical",
+      "desc": "An American realist novel written by John Steinbeck and published in 1939. The book won the National Book Award and Pulitzer Prize for fiction.",
+      "imglink": "https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+    }
+  ]
+  

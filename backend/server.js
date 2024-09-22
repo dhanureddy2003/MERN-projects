@@ -37,8 +37,9 @@ if (process.env.NODE_ENV === "production") {
 (async () => {
   try {
     await mongoose.connect(`${process.env.MONGO_URI}`);
-    app.listen(process.env.PORT_NO, () => {
-      console.log(`server is running in port :${process.env.PORT_NO} `);
+    const PORT = process.env.PORT || 10000; // Default to 10000 if not specified
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.log(error.message);

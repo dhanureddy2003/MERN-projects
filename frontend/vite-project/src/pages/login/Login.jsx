@@ -120,11 +120,11 @@ const Login = () => {
             {isError && <p className="text-red-500">{error.message}</p>}
           </form>
           <div className="flex flex-col gap-2 mt-4 lg:w-[60%]">
-              <p className="text-white text-lg">{"Don't"} have an account?</p>
+            <p className="text-white text-lg">{"Don't"} have an account?</p>
             <Link to="/signup">
-            <button className="btn rounded-full bg-transparent text-white btn-outline w-full">
-              Sign up
-            </button>
+              <button className="btn rounded-full bg-transparent text-white btn-outline w-full">
+                Sign up
+              </button>
             </Link>
           </div>
         </div>

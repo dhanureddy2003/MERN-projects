@@ -81,8 +81,8 @@ const Search = () => {
                 </div>
                 <Link to={`/profile/${user?.username}`}>
                   <div className="cursor-pointer">
-                    <p className="text-[18px]">{user?.fullName}</p>
-                    <p className="text-[16px]">@{user?.username}</p>
+                    <p className="text-[16px] text-gray-400">{user?.fullName}</p>
+                    <p className="text-[14px] text-gray-600">@{user?.username}</p>
                   </div>
                 </Link>
               </div>

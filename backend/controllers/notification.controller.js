@@ -10,7 +10,8 @@ const getNotifications = async (req, res) => {
         select: "profileImg username",
       });
     await Notification.updateMany({ to: userId }, { read: true });
-    res.status(200).json({ notifications });
+    if (notifications === 0) return res.status(200).json([]);
+    res.status(200).json(notifications);
   } catch (error) {
     res.status(500).json({ "error in fetching notifications": error.message });
   }
@@ -34,9 +35,9 @@ const deleteOneNotification = async (req, res) => {
       to: userId,
     });
     if (!notification) {
-      return res.status(404).json({ error: "Notification not found" });
+      return res.status(200).json({ error: "Notification not found" });
     }
-    res.status(200).json({ "notification deleted successfully": notification });
+    res.status(200).json(notification);
   } catch (error) {
     res.status(500).json({ "error in deleting notification": error.message });
   }

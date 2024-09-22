@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SUSE", sans-serif;
+  scroll-behavior: smooth;
+  color: white;
+  /* overflow-x: hidden; */
+}
+

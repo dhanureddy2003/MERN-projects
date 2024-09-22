@@ -8,26 +8,42 @@ const getUserProfile = async (req, res) => {
   try {
     const { username } = req.params;
 
-    const user = await User.findOne({ username }).select("-password");
+    const user = await User.findOne({ username })
+      .select("-password")
+      .populate({
+        path: "posts",
+      });
 
     if (!user) return res.status(404).json({ error: "user not found" });
-    return res.status(200).json({ user });
+    return res.status(200).json(user);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
+const searchUser = async (req, res) => {
+  try {
+    const { username } = req.query;
+    const user = await User.find({
+      username: { $regex: username, $options: "i" },
+    }).select("-password");
+    if (!user) return res.status(404).json({ error: "user not found" });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 const followUnfollowUser = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
-    if (!user) return res.status(404).json({ error: "user not found" });
+    if (!user) return res.status(200).json({ error: "user not found" });
 
     const currentUser = await User.findById(req.user._id);
-    if (!currentUser) return res.status(400).json({ error: "No user found" });
+    if (!currentUser) return res.status(200).json({ error: "No user found" });
 
     if (id === currentUser._id.toString()) {
-      return res.status(400).json({ error: "Can't follow yourself" });
+      return res.status(200).json({ error: "Can't follow yourself" });
     }
     if (currentUser.following.includes(id)) {
       await User.findByIdAndUpdate(id, { $pull: { followers: req.user._id } });
@@ -71,74 +87,94 @@ const suggestedProfiles = async (req, res) => {
     filteredUsers.forEach((feild) => {
       feild.password = null;
     });
-    res.status(200).json({ filteredUsers });
+    if (filteredUsers === 0) return res.status(404).json([]);
+    res.status(200).json(filteredUsers);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
 const updateProfile = async (req, res) => {
-  const { username, email, fullName, currentPassword, newPassword, link, bio } =
+  const { fullName, email, username, currentPassword, newPassword, bio, link } =
     req.body;
   let { profileImg, coverImg } = req.body;
 
+  const userId = req.user._id;
+
   try {
-    const currentUser = await User.findById(req.user._id);
-    if (!currentUser) return res.status(404).json({ error: "User not found!" });
+    let user = await User.findById(userId);
+    if (!user) return res.status(404).json({ message: "User not found" });
 
-    if (!currentPassword)
-      return res.status(400).json({ error: "Current password is required!" });
+    if (
+      (!newPassword && currentPassword) ||
+      (!currentPassword && newPassword)
+    ) {
+      return res.status(400).json({
+        error: "Please provide both current password and new password",
+      });
+    }
 
-    const isMatch = await bcrypt.compare(currentPassword, currentUser.password);
-    if (!isMatch) return res.status(400).json({ error: "Incorrect password!" });
-
-    if (newPassword) {
-      if (!currentPassword || !newPassword) {
+    if (currentPassword && newPassword) {
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch)
+        return res.status(400).json({ error: "Current password is incorrect" });
+      if (newPassword.length < 6) {
         return res
-          .status(404)
-          .json({ error: "current password and new password are required!" });
+          .status(400)
+          .json({ error: "Password must be at least 6 characters long" });
       }
-      if (currentPassword && newPassword) {
-        if (newPassword.length < 6)
-          return res
-            .status(400)
-            .json({ error: "password should be atleast 6 characters." });
-        const salt = await bcrypt.genSalt(10);
-        currentUser.password = await bcrypt.hash(newPassword, salt);
-      }
+
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(newPassword, salt);
     }
 
     if (profileImg) {
-      if (currentUser.profileImg) {
+      if (user.profileImg) {
+        // https://res.cloudinary.com/dyfqon1v6/image/upload/v1712997552/zmxorcxexpdbh8r0bkjb.png
         await cloudinary.uploader.destroy(
-          currentUser.profileImg.split("/").pop().split(".")[0]
+          user.profileImg.split("/").pop().split(".")[0]
         );
       }
+
       const uploadedResponse = await cloudinary.uploader.upload(profileImg);
       profileImg = uploadedResponse.secure_url;
     }
 
     if (coverImg) {
-      if (currentUser.coverImg) {
+      if (user.coverImg) {
         await cloudinary.uploader.destroy(
-          currentUser.coverImg.split("/").pop().split(".")[0]
+          user.coverImg.split("/").pop().split(".")[0]
         );
       }
+
       const uploadedResponse = await cloudinary.uploader.upload(coverImg);
       coverImg = uploadedResponse.secure_url;
     }
-    currentUser.username = username || currentUser.username;
-    currentUser.email = email || currentUser.email;
-    currentUser.fullName = fullName || currentUser.fullName;
-    currentUser.link = link || currentUser.link;
-    currentUser.bio = bio || currentUser.bio;
-    currentUser.profileImg = profileImg || currentUser.profileImg;
-    currentUser.coverImg = coverImg || currentUser.coverImg;
-    await currentUser.save();
-    res.status(200).json({ "profile successfully updated.": currentUser });
+
+    user.fullName = fullName || user.fullName;
+    user.email = email || user.email;
+    user.username = username || user.username;
+    user.bio = bio || user.bio;
+    user.link = link || user.link;
+    user.profileImg = profileImg || user.profileImg;
+    user.coverImg = coverImg || user.coverImg;
+
+    user = await user.save();
+
+    // password should be null in response
+    user.password = null;
+
+    res.status(200).json(user);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.log("Error in updateUser: ", error.message);
+    res.status(500).json({ error: error.message });
   }
 };
 
-export { getUserProfile, followUnfollowUser, suggestedProfiles, updateProfile };
+export {
+  getUserProfile,
+  followUnfollowUser,
+  suggestedProfiles,
+  updateProfile,
+  searchUser,
+};

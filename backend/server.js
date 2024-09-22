@@ -8,9 +8,9 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
 const app = express();
-app.use(express.json());
+app.use(express.json({limit: "10mb"}));
 dotenv.config();
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({limit: "10mb", extended: true }));
 app.use(cookieParser());
 
 cloudinary.config({

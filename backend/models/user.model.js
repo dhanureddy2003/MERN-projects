@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import { type } from "os";
 
 const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
       required: true,
+      unique: true,
     },
     fullName: {
       type: String,
@@ -14,17 +14,12 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      minlength: 6,
+      minLength: 6,
     },
     email: {
       type: String,
       required: true,
-    },
-    profileImg: {
-      type: String,
-    },
-    coverImg: {
-      type: String,
+      unique: true,
     },
     followers: [
       {
@@ -40,6 +35,22 @@ const userSchema = new mongoose.Schema(
         default: [],
       },
     ],
+    profileImg: {
+      type: String,
+      default: "",
+    },
+    coverImg: {
+      type: String,
+      default: "",
+    },
+    bio: {
+      type: String,
+      default: "",
+    },
+    link: {
+      type: String,
+      default: "",
+    },
     likedPosts: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -47,13 +58,10 @@ const userSchema = new mongoose.Schema(
         default: [],
       },
     ],
-    link: {
-      type: String,
-      default: "",
-    },
-    bio: {
-      type: String,
-      default: "",
+    posts: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "Post",
+      default: [],
     },
   },
   { timestamps: true }
